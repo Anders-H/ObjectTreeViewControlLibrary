@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            treeWiew1 = new ObjectTreeViewControlLibrary.TreeView();
+            treeView = new ObjectTreeViewControlLibrary.TreeView();
             SuspendLayout();
             // 
-            // treeWiew1
+            // treeView
             // 
-            treeWiew1.BorderStyle = BorderStyle.FixedSingle;
-            treeWiew1.Location = new Point(32, 24);
-            treeWiew1.Name = "treeWiew1";
-            treeWiew1.Size = new Size(472, 388);
-            treeWiew1.TabIndex = 0;
-            treeWiew1.ViewOffset = 0;
+            treeView.BorderStyle = BorderStyle.FixedSingle;
+            treeView.Location = new Point(32, 24);
+            treeView.Name = "treeView";
+            treeView.Size = new Size(472, 388);
+            treeView.TabIndex = 0;
+            treeView.ViewOffset = 0;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(treeWiew1);
+            Controls.Add(treeView);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private ObjectTreeViewControlLibrary.TreeView treeWiew1;
+        private ObjectTreeViewControlLibrary.TreeView treeView;
     }
 }

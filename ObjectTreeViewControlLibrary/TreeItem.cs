@@ -61,9 +61,8 @@ public abstract class TreeItem
         }
     }
 
-    public TreeItem Add(TreeItem item)
+    internal TreeItem Add(TreeItem item)
     {
-        item.Parent = Parent;
         item.Indentation = Indentation + 1;
         Items.Add(item);
         Parent?.UpdateScrollbar();

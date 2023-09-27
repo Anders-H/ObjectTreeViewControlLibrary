@@ -6,10 +6,12 @@ public partial class TreeView : UserControl
     public TreeItemList Items { get; }
     public int VisibleItemsCount { get; private set; }
     public event ItemClickDelegate? ItemClick;
+    public ItemColorPalette ItemColors { get; }
 
     public TreeView()
     {
         Items = new TreeItemList();
+        ItemColors = new ItemColorPalette();
         VisibleItemsCount = 0;
         InitializeComponent();
     }
@@ -45,9 +47,18 @@ public partial class TreeView : UserControl
     {
         item.Parent = this;
         item.Indentation = 0;
+        SetItemColor(item);
         Items.Add(item);
         Invalidate();
         UpdateScrollbar();
+        return item;
+    }
+
+    public TreeItem AddChild(TreeItem parent, TreeItem item)
+    {
+        item.Parent = this;
+        SetItemColor(item);
+        parent.Add(item);
         return item;
     }
 

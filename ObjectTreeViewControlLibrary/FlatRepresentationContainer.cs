@@ -13,5 +13,4 @@ internal class FlatRepresentationContainer
 
     public override string ToString() =>
         $"Container for item: {Item}";
-
 }
