@@ -18,7 +18,6 @@ public partial class TreeView : UserControl
 
     private void UserControl1_Load(object sender, EventArgs e)
     {
-
     }
 
     private void vScrollBar1_Scroll(object sender, ScrollEventArgs e) =>
@@ -60,6 +59,16 @@ public partial class TreeView : UserControl
         SetItemColor(item);
         parent.Add(item);
         return item;
+    }
+
+    private void SetItemColor(TreeItem item)
+    {
+        if (ItemColors.Has(item.ItemType))
+            ItemColors.Remove(item.ItemType);
+
+        var c = ItemColors.Get(item.ItemType);
+        item.ForegroundColor = c.ForegroundColor;
+        item.BackgroundColor = c.BackgroundColor;
     }
 
     public void Deselect()

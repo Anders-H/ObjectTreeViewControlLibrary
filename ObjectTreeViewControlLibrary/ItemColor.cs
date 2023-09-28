@@ -3,11 +3,13 @@
 public class ItemColor
 {
     public string ItemType { get; }
-    public Brush Color { get; }
+    public Brush BackgroundColor { get; }
+    public Brush ForegroundColor { get; }
 
-    public ItemColor(string itemType, Brush itemColor)
+    public ItemColor(string itemType, Brush itemBackgroundColor, Brush itemForegroundColor)
     {
         ItemType = itemType;
-        Color = itemColor;
+        BackgroundColor = itemBackgroundColor;
+        ForegroundColor = itemForegroundColor;
     }
 }
