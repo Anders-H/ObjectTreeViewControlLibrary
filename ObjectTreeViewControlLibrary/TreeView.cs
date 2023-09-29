@@ -6,6 +6,7 @@ public partial class TreeView : UserControl
     public TreeItemList Items { get; }
     public int VisibleItemsCount { get; private set; }
     public event ItemClickDelegate? ItemClick;
+    public event ItemClickDelegate? ItemDoubleClick;
     public ItemColorPalette ItemColors { get; }
 
     public TreeView()
@@ -61,12 +62,21 @@ public partial class TreeView : UserControl
         return item;
     }
 
+    public void RegisterItemColor(string itemType, Brush backgroundColor, Brush foregroundColor)
+    {
+        if (ItemColors.Has(itemType))
+            ItemColors.Remove(itemType);
+
+        ItemColors.Add(new ItemColor(itemType, backgroundColor, foregroundColor));
+    }
+
     private void SetItemColor(TreeItem item)
     {
-        if (ItemColors.Has(item.ItemType))
-            ItemColors.Remove(item.ItemType);
-
         var c = ItemColors.Get(item.ItemType);
+        
+        if (c == null)
+            return;
+
         item.ForegroundColor = c.ForegroundColor;
         item.BackgroundColor = c.BackgroundColor;
     }
@@ -186,5 +196,18 @@ public partial class TreeView : UserControl
         }
 
         base.OnMouseClick(e);
+    }
+
+    protected override void OnMouseDoubleClick(MouseEventArgs e)
+    {
+        var item = GetItemAt(e.Y);
+
+        if (item != null)
+        {
+            item.Selected = true;
+            ItemDoubleClick?.Invoke(this, item);
+        }
+
+        base.OnMouseDoubleClick(e);
     }
 }
