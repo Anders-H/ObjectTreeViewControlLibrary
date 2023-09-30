@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ItemColors>
+	<ItemColor>
+		<TypeName>Test</TypeName>
+		<ForegroundColor>#88ff88</ForegroundColor>
+		<BackgroundColor>#666666</BackgroundColor>
+	</ItemColor>
+	<ItemColor>
+		<TypeName>Specialtyp</TypeName>
+		<ForegroundColor>#8888ff</ForegroundColor>
+		<BackgroundColor>#000088</BackgroundColor>
+	</ItemColor>
+</ItemColors>

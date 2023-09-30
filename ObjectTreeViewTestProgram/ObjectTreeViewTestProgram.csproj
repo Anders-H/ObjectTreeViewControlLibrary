@@ -12,4 +12,10 @@
     <ProjectReference Include="..\ObjectTreeViewControlLibrary\ObjectTreeViewControlLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ItemColors.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

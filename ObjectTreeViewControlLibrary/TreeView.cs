@@ -1,4 +1,7 @@
-﻿namespace ObjectTreeViewControlLibrary;
+﻿using System.Text;
+using System.Xml;
+
+namespace ObjectTreeViewControlLibrary;
 
 public partial class TreeView : UserControl
 {
@@ -68,6 +71,21 @@ public partial class TreeView : UserControl
             ItemColors.Remove(itemType);
 
         ItemColors.Add(new ItemColor(itemType, backgroundColor, foregroundColor));
+    }
+
+    public void RegisterItemColors(string filename)
+    {
+        using var sr = new StreamReader(filename, Encoding.UTF8);
+        var xml = sr.ReadToEnd();
+        var dom = new XmlDocument();
+        dom.LoadXml(xml);
+        foreach (XmlElement itemColor in dom.DocumentElement!.SelectNodes("ItemColor")!)
+        {
+            var typeName = itemColor.SelectSingleNode("TypeName")!.InnerText;
+            var foregroundColor = itemColor.SelectSingleNode("ForegroundColor")!.InnerText;
+            var backgroundColor = itemColor.SelectSingleNode("BackgroundColor")!.InnerText;
+            ItemColors.Add(new ItemColor(typeName, foregroundColor, backgroundColor));
+        }
     }
 
     private void SetItemColor(TreeItem item)

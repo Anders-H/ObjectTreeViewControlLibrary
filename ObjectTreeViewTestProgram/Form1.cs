@@ -9,8 +9,7 @@ namespace ObjectTreeViewTestProgram
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            treeView.RegisterItemColor("Test", Brushes.Red, Brushes.Yellow);
-            treeView.RegisterItemColor("Specialtyp", Brushes.Blue, Brushes.Cyan);
+            treeView.RegisterItemColors("ItemColors.xml");
 
             treeView.Add(new Item("Root 1"));
             var root2 = treeView.Add(new Item("Root 2"));
