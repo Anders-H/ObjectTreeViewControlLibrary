@@ -39,6 +39,7 @@
             treeView.Size = new Size(472, 388);
             treeView.TabIndex = 0;
             treeView.ViewOffset = 0;
+            treeView.ItemDoubleClick += treeView_ItemDoubleClick;
             // 
             // Form1
             // 

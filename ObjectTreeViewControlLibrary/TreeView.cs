@@ -11,11 +11,13 @@ public partial class TreeView : UserControl
     public event ItemClickDelegate? ItemClick;
     public event ItemClickDelegate? ItemDoubleClick;
     public ItemColorPalette ItemColors { get; }
+    public ObjectDescriptorList ObjectDescriptors { get; }
 
     public TreeView()
     {
         Items = new TreeItemList();
         ItemColors = new ItemColorPalette();
+        ObjectDescriptors = new ObjectDescriptorList();
         VisibleItemsCount = 0;
         InitializeComponent();
     }
@@ -225,6 +227,8 @@ public partial class TreeView : UserControl
             item.Selected = true;
             ItemDoubleClick?.Invoke(this, item);
         }
+
+        xxx
 
         base.OnMouseDoubleClick(e);
     }

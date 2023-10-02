@@ -25,5 +25,10 @@ namespace ObjectTreeViewTestProgram
             for (var i = 4; i < 20; i++)
                 treeView.Add(new Item($"Root {i}"));
         }
+
+        private void treeView_ItemDoubleClick(object sender, ObjectTreeViewControlLibrary.TreeItem item)
+        {
+            MessageBox.Show(item.GetType().Name);
+        }
     }
 }
